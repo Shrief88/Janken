@@ -7,37 +7,30 @@ function computerPlay(){
 function singleRound(playerSelection,computerSelection){
     const Results = ['win','lose','Draw']
      
-    if(playerSelection == 'rock' && computerSelection == 'scissors'){
-        console.log('"You Win! Rock beats Scissors"');
+    if(playerSelection == 'rock' && computerSelection == 'scissors'|| playerSelection == 'scissors'&& computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock'){
         return Results[0];
     }
-    else if (playerSelection == 'scissors'&& computerSelection == 'paper' ){
-        console.log('"You Win! Scissors beats Paper"');
-        return Results[0];
-    }
-    else if (playerSelection == 'paper' && computerSelection == 'rock'){
-        console.log('You Win! Paper beats Rock');
-        return Results[0];
-    }
-    else if(computerSelection == 'rock' && playerSelection == 'scissors'){
-        console.log('You Lose! Rock beats Scissors');
-        return Results[1];
-    }
-    else if(computerSelection == 'scissors'&& playerSelection == 'paper' ){
-        console.log('You Lose! Scissors beats Paper');
-        return Results[1];
-    }
-    else if(computerSelection == 'paper' && playerSelection == 'rock'){
-        console.log('You Lose! Paper beats Rock');
+    else if(computerSelection == 'rock' && playerSelection == 'scissors' || computerSelection == 'scissors'&& playerSelection == 'paper' || computerSelection == 'paper' && playerSelection == 'rock'){
         return Results[1];
     }
     else if (playerSelection == computerSelection){
-        console.log('It is a Draw');
         return Results[2];
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(singleRound(playerSelection, computerSelection));
+/*function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for(let i=0;i<5;i++){
+        let result = singleRound(playerSelection,computerPlay());
+        if(result == 'win'){
+            playerScore++;
+        }
+        else if (result == 'lose'){
+            computerScore++;
+        }
+    }
+
+
+}*/
 
