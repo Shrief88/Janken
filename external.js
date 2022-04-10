@@ -3,6 +3,12 @@ function computerPlay(){
     return options[Math.floor(Math.random() * options.length)];
 }
 
+function playerPlay(){
+    let option = prompt('Enter your option');
+    option = option.toLowerCase();
+    return option;
+}
+
 
 function singleRound(playerSelection,computerSelection){
     const Results = ['win','lose','Draw']
@@ -18,16 +24,25 @@ function singleRound(playerSelection,computerSelection){
     }
 }
 
+
+
 /*function game(){
     let playerScore = 0;
     let computerScore = 0;
     for(let i=0;i<5;i++){
+        const playerSelection = 'rock';
+        const computerSelection = computerPlay();
         let result = singleRound(playerSelection,computerPlay());
         if(result == 'win'){
             playerScore++;
+            console.log(`You Win, ${playerSelection} beats ${computerSelection}`);
         }
         else if (result == 'lose'){
             computerScore++;
+            console.log(`You Lose, ${computerSelection} beats ${playerSelection}`);
+        }
+        else {
+            console.log('It is Draw'); 
         }
     }
 
