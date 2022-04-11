@@ -5,8 +5,7 @@ function computerPlay(){
 
 function playerPlay(){
     let option = prompt('Enter your option');
-    option = option.toLowerCase();
-    return option;
+    return option.toLowerCase().trim();
 }
 
 
@@ -32,8 +31,6 @@ function game(){
     for(let i=0;i<5;i++){
         const playerSelection = playerPlay()
         const computerSelection = computerPlay();
-        console.log(playerSelection);
-        console.log(computerSelection);
         let result = singleRound(playerSelection,computerSelection);
         if(result == 'win'){
             playerScore++;
