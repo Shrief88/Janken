@@ -20,8 +20,19 @@ function singleRound(playerSelection,computerSelection){
 function reset(buttons){
     let playerScore = document.querySelector('.playerScore h1');
     let computerScore = document.querySelector('.computerScore h1');
+    const divResult = document.querySelector('#endResult');
+    const roundResult = document.querySelector('#roundResult');
+    const winnerPlayer = document.querySelector('.computerScore');
+    const winnerComputer = document.querySelector('.playerScore')
+    
+
     playerScore.textContent = 0;
     computerScore.textContent = 0;
+    divResult.textContent = '';
+    roundResult.textContent = '';
+    winnerPlayer.classList.remove('winning');
+    winnerComputer.classList.remove('winning');
+
     buttons.forEach(button=>{
         button.disabled = false;
     })
@@ -33,8 +44,17 @@ function gameResult(playerScore,computerScore,buttons){
         buttons.forEach((button)=>{
             button.disabled =true;
         })
-        if(playerScore.textContent>4) divResult.textContent = "The player has WON !";
-        else if(computerScore.textContent > 4) divResult.textContent = "The computer has WON !";
+        if(playerScore.textContent>4){
+            const winner = document.querySelector('.playerScore')
+            winner.classList.add('winning');
+            divResult.textContent = "The player has WON !";
+
+        } 
+        else if(computerScore.textContent > 4){
+            const winner = document.querySelector('.computerScore')
+            winner.classList.add('winning');
+            divResult.textContent = "The computer has WON !";
+        } 
     }
 }
 

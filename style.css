@@ -4,7 +4,17 @@ body{
    align-items: center;
    justify-content: center;
    flex-direction: column;
+   gap: 30px;
 }
+
+h1{
+   margin: 0;
+}
+
+#title{
+   font-size: 45px;
+}
+
 
 .buttons{
    display: flex;
@@ -23,27 +33,52 @@ body{
    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
  }
 
-
+#roundResult{
+   font-size: 25px;
+   font-weight: bold;
+   color: rgb(194, 127, 3);
+}
 
 .score{
    display: flex;
    gap: 100px;
 }
 
-#roundResult{
-   margin-top: 20px;
-}
-
 .playerScore,.computerScore{
-   border: 1px solid black;
+   border: .2rem solid #517cc0;
+   transition: all .4s ease;
+   border-radius: 15px;
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin: 20px;
-   padding: 20px;
    font-size: 25px;
+   width: 140px;
+   height: 160px;
 }
 
+.winning {
+   transform: scale(1.1);
+   border-color: #bb9200;
+ }
+
+
+
+#endResult{
+   font-size: 35px;
+   font-weight: bold;
+   color: rgb(194, 127, 3);
+
+}
+
+#reset{
+   background-color: #3B82F6;
+   padding: 10px 25px;
+   color: white;
+   font-weight: bold;
+   border-radius: 10px;
+   font-size: 24px;
+   border: solid;
+}
 
 
 
