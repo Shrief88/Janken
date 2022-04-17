@@ -3,6 +3,7 @@ body{
    display: flex;
    align-items: center;
    justify-content: center;
+   flex-direction: column;
 }
 
 
@@ -16,4 +17,23 @@ body{
    font-size: 40px;
    border: 1px solid black;
    padding: 20px;
+}
+
+.score{
+   display: flex;
+   gap: 100px;
+}
+
+#roundResult{
+   margin-top: 20px;
+}
+
+.playerScore,.computerScore{
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 20px;
+   padding: 20px;
+   font-size: 25px;
 }

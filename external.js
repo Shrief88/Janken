@@ -22,48 +22,31 @@ function singleRound(playerSelection,computerSelection){
 
 
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for(let i=0;i<5;i++){
-        const playerSelection = playerPlay();
-        const computerSelection = computerPlay();
-        console.log(playerSelection);
-        console.log(computerSelection);
-        let result = singleRound(playerSelection,computerSelection);
-
-        if(result == 'win'){
-            playerScore++;
-            console.log(`You Win, ${playerSelection} beats ${computerSelection}`);
-        }
-        else if (result == 'lose'){
-            computerScore++;
-            console.log(`You Lose, ${computerSelection} beats ${playerSelection}`);
-        }
-        else {
-            console.log('It is Draw'); 
-        }
-
-    }
-
-    if(playerScore > computerScore){
-        console.log('The Player has WON!')
-    }
-    else if (playerScore < computerScore){
-        console.log('The Computer has WON!');
-    }
-    else{
-        console.log('It is Draw');
-    }
-
-}
-
 const buttons = document.querySelectorAll('.button');
     buttons.forEach((button)=>{ 
         button.addEventListener('click',function(e){
             let playerSelection = button.getAttribute('data-option');
+            const roundResult = document.querySelector('#roundResult');
+            const playerScore = document.querySelector('.playerScore h1');
+            const computerScore = document.querySelector('.computerScore h1');
             computerSelection = computerPlay();
-            let results = (singleRound(playerSelection,computerSelection));
+            let result = (singleRound(playerSelection,computerSelection));
+
+            if(result == 'win'){
+                playerScore.textContent++;
+                roundResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}`;
+            }
+            else if (result == 'lose'){
+                computerScore.textContent++;
+                roundResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}`
+            }
+            else {
+                roundResult.textContent = 'It is a Draw';
+            }
+
+
+
+
         })
     })
     
