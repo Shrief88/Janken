@@ -17,31 +17,47 @@ function singleRound(playerSelection,computerSelection){
     }
 }
 
-function reset(playerScore,computerScore){
+function reset(buttons){
+    let playerScore = document.querySelector('.playerScore h1');
+    let computerScore = document.querySelector('.computerScore h1');
     playerScore.textContent = 0;
     computerScore.textContent = 0;
+    buttons.forEach(button=>{
+        button.disabled = false;
+    })
+}
 
+function gameResult(playerScore,computerScore,buttons){
+    const divResult = document.querySelector('#endResult');
+    if(playerScore.textContent> 4 || computerScore .textContent>4){
+        buttons.forEach((button)=>{
+            button.disabled =true;
+        })
+        if(playerScore.textContent>4) divResult.textContent = "The player has WON !";
+        else if(computerScore.textContent > 4) divResult.textContent = "The computer has WON !";
+    }
 }
 
 
 
-const buttons = document.querySelectorAll('.button');
-const playerScore = document.querySelector('.playerScore h1');
-const computerScore = document.querySelector('.computerScore h1');
-const resetButton = document.querySelector('#reset');
-const divResult = document.querySelector('#endResult');
 
+const buttons = document.querySelectorAll('.button');
+const resetButton = document.querySelector('#reset');
 
 
 
 
 buttons.forEach((button)=>{ 
-    button.addEventListener('click',function(e){
-        let playerSelection = button.getAttribute('data-option');
-        const roundResult = document.querySelector('#roundResult');
-        computerSelection = computerPlay();
+    button.addEventListener('click',()=>{
+        const playerSelection = button.getAttribute('data-option');
+        const computerSelection = computerPlay();
         let result = (singleRound(playerSelection,computerSelection));
+        
 
+        let playerScore = document.querySelector('.playerScore h1');
+        let computerScore = document.querySelector('.computerScore h1');
+        const roundResult = document.querySelector('#roundResult');
+       
         if(result == 'win'){
             playerScore.textContent++;
             roundResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}`;
@@ -53,23 +69,13 @@ buttons.forEach((button)=>{
         else {
             roundResult.textContent = 'It is a Draw';
         }
-  
-        if(playerScore.textContent > 4) {
-            console.log('dd');
-            divResult.textContent = "The player has WON !";
-        }    
-        else if (computerScore.textContent > 4){
-            console.log('aa');
-            divResult.textContent = "The computer has WON !";
-        } 
 
-
-
+        gameResult(playerScore,computerScore,buttons);
     })
 })
 
 resetButton.addEventListener('click', ()=>{
-    reset(playerScore,computerScore);
+    reset(buttons);
 });
  
 
