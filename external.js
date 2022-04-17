@@ -29,6 +29,10 @@ const buttons = document.querySelectorAll('.button');
 const playerScore = document.querySelector('.playerScore h1');
 const computerScore = document.querySelector('.computerScore h1');
 const resetButton = document.querySelector('#reset');
+const divResult = document.querySelector('#endResult');
+
+
+
 
 
 buttons.forEach((button)=>{ 
@@ -49,6 +53,18 @@ buttons.forEach((button)=>{
         else {
             roundResult.textContent = 'It is a Draw';
         }
+  
+        if(playerScore.textContent > 4) {
+            console.log('dd');
+            divResult.textContent = "The player has WON !";
+        }    
+        else if (computerScore.textContent > 4){
+            console.log('aa');
+            divResult.textContent = "The computer has WON !";
+        } 
+
+
+
     })
 })
 
