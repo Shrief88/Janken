@@ -3,15 +3,7 @@ function computerPlay(){
     return options[Math.floor(Math.random() * options.length)];
 }
 
-function playerPlay(){
-    const buttons = document.querySelectorAll('.button');
-    buttons.forEach((button)=>{ 
-        button.addEventListener('click',function(e){
-            let option = button.getAttribute('data-option');
-            return option;
-        })
-    })
-}
+
 
 
 function singleRound(playerSelection,computerSelection){
@@ -34,10 +26,12 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
     for(let i=0;i<5;i++){
-       // const playerSelection = playerPlay();
+        const playerSelection = playerPlay();
         const computerSelection = computerPlay();
+        console.log(playerSelection);
         console.log(computerSelection);
         let result = singleRound(playerSelection,computerSelection);
+
         if(result == 'win'){
             playerScore++;
             console.log(`You Win, ${playerSelection} beats ${computerSelection}`);
@@ -49,9 +43,8 @@ function game(){
         else {
             console.log('It is Draw'); 
         }
+
     }
-    console.log(playerScore);
-    console.log(computerScore);
 
     if(playerScore > computerScore){
         console.log('The Player has WON!')
@@ -64,6 +57,17 @@ function game(){
     }
 
 }
+
+const buttons = document.querySelectorAll('.button');
+    buttons.forEach((button)=>{ 
+        button.addEventListener('click',function(e){
+            let playerSelection = button.getAttribute('data-option');
+            computerSelection = computerPlay();
+            let results = (singleRound(playerSelection,computerSelection));
+        })
+    })
+    
+
 
 
 
