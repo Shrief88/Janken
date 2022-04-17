@@ -4,8 +4,13 @@ function computerPlay(){
 }
 
 function playerPlay(){
-    let option = prompt('Enter your option');
-    return option.toLowerCase().trim();
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach((button)=>{ 
+        button.addEventListener('click',function(e){
+            let option = button.getAttribute('data-option');
+            return option;
+        })
+    })
 }
 
 
@@ -29,8 +34,9 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
     for(let i=0;i<5;i++){
-        const playerSelection = playerPlay()
+       // const playerSelection = playerPlay();
         const computerSelection = computerPlay();
+        console.log(computerSelection);
         let result = singleRound(playerSelection,computerSelection);
         if(result == 'win'){
             playerScore++;
@@ -44,6 +50,9 @@ function game(){
             console.log('It is Draw'); 
         }
     }
+    console.log(playerScore);
+    console.log(computerScore);
+
     if(playerScore > computerScore){
         console.log('The Player has WON!')
     }
@@ -53,7 +62,9 @@ function game(){
     else{
         console.log('It is Draw');
     }
+
 }
 
-game()
+
+
 

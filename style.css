@@ -1,0 +1,19 @@
+body{
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+
+.buttons{
+   display: flex;
+   gap: 15px;
+}
+
+.button{
+   font-size: 40px;
+   border: 1px solid black;
+   padding: 20px;
+}
