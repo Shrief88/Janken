@@ -1,6 +1,28 @@
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+
+
 function computerPlay(){
     const options = ['rock','paper','scissors'];
-    return options[Math.floor(Math.random() * options.length)];
+    const option =  options[Math.floor(Math.random() * options.length)];
+
+    const capitalizedOption = capitalizeFirstLetter(option);    
+    const buttons = document.querySelector('.buttons');
+
+    const computerSelection = document.createElement('button');
+    computerSelection.classList.add('button');
+    computerSelection.classList.add('computerSelection');
+
+    computerSelection.textContent = capitalizedOption;
+    
+
+    if(buttons.children.length >3 ){
+        buttons.removeChild(buttons.lastChild);
+    }
+    buttons.appendChild(computerSelection);
+    return option;
 }
 
 function singleRound(playerSelection,computerSelection){
@@ -24,6 +46,7 @@ function reset(buttons){
     const roundResult = document.querySelector('#roundResult');
     const winnerPlayer = document.querySelector('.computerScore');
     const winnerComputer = document.querySelector('.playerScore')
+    const button = document.querySelector('.buttons');
     
 
     playerScore.textContent = 0;
@@ -32,6 +55,8 @@ function reset(buttons){
     roundResult.textContent = '';
     winnerPlayer.classList.remove('winning');
     winnerComputer.classList.remove('winning');
+    
+    button.removeChild(button.lastChild);
 
     buttons.forEach(button=>{
         button.disabled = false;
