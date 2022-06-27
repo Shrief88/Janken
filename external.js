@@ -1,21 +1,14 @@
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-
-
 function computerPlay(){
-    const options = ['rock','paper','scissors'];
+    const options = ['Rock','Paper','Scissors'];
     const option =  options[Math.floor(Math.random() * options.length)];
 
-    const capitalizedOption = capitalizeFirstLetter(option);    
     const buttons = document.querySelector('.buttons');
 
     const computerSelection = document.createElement('button');
     computerSelection.classList.add('button');
     computerSelection.classList.add('computerSelection');
 
-    computerSelection.textContent = capitalizedOption;
+    computerSelection.textContent = option;
     
 
     if(buttons.children.length >3 ){
@@ -28,10 +21,10 @@ function computerPlay(){
 function singleRound(playerSelection,computerSelection){
     const Results = ['win','lose','Draw']
      
-    if(playerSelection == 'rock' && computerSelection == 'scissors'|| playerSelection == 'scissors' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'rock'){
+    if(playerSelection == 'rock' && computerSelection == 'Scissors'|| playerSelection == 'scissors' && computerSelection == 'Paper' || playerSelection == 'paper' && computerSelection == 'Rock'){
         return Results[0];
     }
-    else if(computerSelection == 'rock' && playerSelection == 'scissors' || computerSelection == 'scissors' && playerSelection == 'paper' || computerSelection == 'paper' && playerSelection == 'rock'){
+    else if(computerSelection == 'Rock' && playerSelection == 'scissors' || computerSelection == 'Scissors' && playerSelection == 'paper' || computerSelection == 'Paper' && playerSelection == 'rock'){
         return Results[1];
     }
     else if (playerSelection == computerSelection){
