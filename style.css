@@ -5,10 +5,12 @@ body{
    justify-content: center;
    flex-direction: column;
    gap: 30px;
+   font-size: 20px;
 }
 
 h1{
    margin: 0;
+   text-align: center;
 }
 
 #title{
@@ -87,5 +89,34 @@ h1{
    border: solid;
 }
 
+
+@media only screen and (max-width: 520px) {
+   .button {
+      font-size: 30px;
+   }
+
+   .buttons {
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+
+   .computerSelection{
+      margin-left: 0;
+   }
+
+
+ }
+
+ @media only screen and (max-width: 400px) {
+   .button {
+      font-size: 20px;
+   }
+   .playerScore,.computerScore{
+      font-size: 20px;
+   }
+   .score{
+      gap:40px;
+   }
+ } 
 
 
